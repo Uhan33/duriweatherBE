@@ -2,7 +2,7 @@ export default function handler(req, res) {
     var request = require('request');
 
     var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
-    var queryParams = '?' + encodeURIComponent('serviceKey') + '=서비스키'; /* Service Key*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=	ySgwAA4cxcbx7n9F5i08pYGiFyS92Wc%2BjEdGYYvRsa4xCZlP0IbjUpelNxOdowDfjVmlKawIKfmnCnTAKmBLgQ%3D%3D'; /* Service Key*/
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /* */
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1000'); /* */
     queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('XML'); /* */
