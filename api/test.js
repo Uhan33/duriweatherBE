@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+
     var request = require('request');
 
     var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
@@ -19,4 +19,3 @@ export default function handler(req, res) {
         //console.log('Headers', JSON.stringify(response.headers));
         //console.log('Reponse received', body);
     });
-}
