@@ -6,7 +6,7 @@ export default function handler(req, res) {
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /* */
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1000'); /* */
     queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('XML'); /* */
-    queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20210628'); /* */
+    queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20230628'); /* */
     queryParams += '&' + encodeURIComponent('base_time') + '=' + encodeURIComponent('0600'); /* */
     queryParams += '&' + encodeURIComponent('nx') + '=' + encodeURIComponent('55'); /* */
     queryParams += '&' + encodeURIComponent('ny') + '=' + encodeURIComponent('127'); /* */
