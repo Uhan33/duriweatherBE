@@ -1,4 +1,9 @@
 
+const express = require('express');
+const router = express.Router();
+    
+router.get("/", async (req, res) => {
+    res.send("test page");
     var request = require('request');
 
     var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
@@ -6,7 +11,7 @@
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /* */
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1000'); /* */
     queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('XML'); /* */
-    queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20230628'); /* */
+    queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20220628'); /* */
     queryParams += '&' + encodeURIComponent('base_time') + '=' + encodeURIComponent('0600'); /* */
     queryParams += '&' + encodeURIComponent('nx') + '=' + encodeURIComponent('55'); /* */
     queryParams += '&' + encodeURIComponent('ny') + '=' + encodeURIComponent('127'); /* */
@@ -19,3 +24,8 @@
         //console.log('Headers', JSON.stringify(response.headers));
         //console.log('Reponse received', body);
     });
+
+    
+});
+
+    module.exports = router;

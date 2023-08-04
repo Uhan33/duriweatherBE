@@ -4,8 +4,10 @@
 } */
 
 const express = require('express');
-const app = express();
+const router = express.Router();
 
-app.use("/", (req, res) => {
-res.send("Server On");
+router.get("/", async (req, res) => {
+  res.send("This is Hello");
 });
+
+module.exports = router;

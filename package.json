@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "prisma generate",
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "devDependencies": {
     "@types/node": "^17.0.42",
