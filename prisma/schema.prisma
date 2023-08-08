@@ -30,3 +30,11 @@ model User {
   posts         Post[]
   @@map(name: "users")
 }
+
+model comment {
+  id            String       @default(cuid()) @id
+  num           Int          @unique
+  weather       String?
+  pm            String?
+  comment       String
+}
