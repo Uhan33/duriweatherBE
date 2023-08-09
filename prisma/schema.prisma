@@ -38,3 +38,13 @@ model comment {
   pm            String?
   comment       String
 }
+
+
+model Recommend{
+  id            String       @default(cuid()) @id
+  name          String?      @unique
+  temperature   Int
+  c_type        String
+  img_url       String?
+  @@map(name: "Recommend")
+}
