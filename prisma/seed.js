@@ -41,20 +41,6 @@ async function main() {
     },
   })
 
-/*   const comm1 = await prisma.comment.upsert({
-    update: {},
-    create: {
-        
-          num : 999,
-          weather: "3",
-          pm: "1",
-          comment: "날씨는 흐리지만 미세먼지는 좋네요!"
-        
-    },
-    where: {
-    },
-  }) */
-
   const resultData = [
     {
       num : 997,
@@ -67,6 +53,12 @@ async function main() {
       weather: "3",
       pm: "1",
       comment: "미세먼지 걱정은 안해도 되겠네요!"
+    },
+    {
+      num : 996,
+      weather: "1",
+      pm: "1",
+      comment: "날씨도 화창하고 미세먼지도 없는데 빨래는 어떠세요?"
     }
   ];
 
@@ -84,23 +76,6 @@ async function main() {
       })
     )
   );
-
-/*   const comm = await prisma.comment.createMany({
-    data: [
-      {
-        num : 997,
-        weather: "3",
-        pm: "1",
-        comment: "미세먼지 없는 날! 밖으로 나가볼까요?"
-      },
-      {
-        num : 998,
-        weather: "3",
-        pm: "1",
-        comment: "미세먼지 걱정은 안해도 되겠네요!"
-      }
-    ]
-  }) */
   console.log({ alice, bob, comm })
 }
 main()
