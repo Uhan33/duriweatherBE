@@ -27,8 +27,7 @@ router.get("/value", async (req, res) => {      //현재 시간 대기오염 지
     res.send(data.response.body.items[0].pm10Value);
 });
 
-/* 미세먼지 등급 1 : 좋음, 2 : 보통, 3 : 나쁨, 4 : 매우나쁨 
-*/
+/* 미세먼지 등급 1 : 좋음, 2 : 보통, 3 : 나쁨, 4 : 매우나쁨 */
 router.get("/grade", async (req, res) => {      //현재 시간 대기오염 등급
     const response = await fetch(url);
     const data = await response.json();

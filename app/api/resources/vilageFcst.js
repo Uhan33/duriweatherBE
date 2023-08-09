@@ -60,7 +60,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
 });
 
 // 강수형태를 코드로 보내줌
-router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3
+router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
     const response = await fetch(url);
     const data = await response.json();
 
