@@ -56,7 +56,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
         if(hour == data.response.body.items.item[i].fcstTime)
             break;
     }
-    res.send(data.response.body.items.item[i+6].fcstValue);
+    res.send(data.response.body.items.item[i+5].fcstValue);
 });
 
 // 강수형태를 코드로 보내줌
@@ -69,7 +69,7 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
         if(hour == data.response.body.items.item[i].fcstTime)
             break;
     }
-    res.send(data.response.body.items.item[i+7].fcstValue);
+    res.send(data.response.body.items.item[i+6].fcstValue);
 });
 
 module.exports = router;
