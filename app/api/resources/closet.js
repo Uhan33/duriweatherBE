@@ -85,5 +85,56 @@ router.get("/sopum", async (req, res) => {
     res.json(newsopum[ran]);
 })
 
+router.get("/pants", async (req, res) => {
+    const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
+
+    const temperature = await tempResponse.json();
+
+    const pants = await prisma.recommend.findMany({
+        where:{
+            AND : [
+                {temperature : {
+                    gt : (temperature-2)
+                }},
+                {temperature : {
+                    lte : (temperature+2)
+                }},
+                {c_type : "하의"}
+            ]
+        },
+        select: {name:true, img_url:true, temperature:true}
+    });
+
+    const ran = Math.floor(Math.random() * pants.length);
+    console.log(pants[ran]);
+    res.json(pants[ran]);
+});
+
+router.get("/jacket", async (req, res) => {
+    const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
+
+    const temperature = await tempResponse.json();
+
+    const jacket = await prisma.recommend.findMany({
+        where:{
+            AND : [
+                {temperature : {
+                    gt : (temperature-2)
+                }},
+                {temperature : {
+                    lte : (temperature+2)
+                }},
+                {c_type : "겉옷"}
+            ]
+        },
+        select: {name:true, img_url:true, temperature:true}
+    });
+
+    const ran = Math.floor(Math.random() * jacket.length);
+    console.log(jacket[ran]);
+    res.json(jacket[ran]);
+});
+
+
 
 module.exports = router;
