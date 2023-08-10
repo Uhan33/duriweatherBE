@@ -51,6 +51,21 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
     const response = await fetch(url);
     const data = await response.json();
 
+    hour += 9;
+    if(hour > 23)
+        hour -= 24;
+
+    for(var i = 0; i < 1000; i += 12) {
+        if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+            break;
+    }
+    res.send(data.response.body.items.item[i+5]);
+});
+
+router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4
+    const response = await fetch(url);
+    const data = await response.json();
+
     for(var i = 0; i < 1000; i += 12) {
         if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
             break;
@@ -60,6 +75,21 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
 
 // 강수형태를 코드로 보내줌
 router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
+    const response = await fetch(url);
+    const data = await response.json();
+
+    hour += 9;
+    if(hour > 23)
+        hour -= 24;
+
+    for(var i = 0; i < 1000; i += 12) {
+        if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+            break;
+    }
+    res.send(data.response.body.items.item[i+6]);
+});
+
+router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
     const response = await fetch(url);
     const data = await response.json();
 
