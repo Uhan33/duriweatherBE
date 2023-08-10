@@ -4,8 +4,6 @@ const router = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-
-
 router.get("/", async (req, res) => {
     const result = await prisma.comment.findMany();
     res.json(result);
@@ -31,9 +29,13 @@ router.get("/today", async (req, res) => {
     const result = await prisma.comment.findMany({
         where: {weather: String(select),
                 pm: String(pm)},
-        select: {comment: true, num: true}
+        select: {comment: true}
     });
-    res.json(result);
+    const randomIndex = Math.floor(Math.random() * result.length);
+
+    console.log(randomIndex);
+
+    res.json(result[randomIndex]);
 });
 
 module.exports = router;
