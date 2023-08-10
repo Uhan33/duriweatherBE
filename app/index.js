@@ -8,7 +8,7 @@ const apiRouter = require("./api/router");
 app.use("/api", apiRouter);
 
 app.get("/", (req, res) => {
-  res.send("Server On^^!");
+  res.send("Server On^^! \n" + Date());
 });
 
 app.get("/ping", (req, res) => {

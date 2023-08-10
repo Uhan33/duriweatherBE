@@ -2,18 +2,18 @@
 const express = require('express');
 const router = express.Router();
 
-let today = new Date();
+var today = new Date();
 
-let year = today.getFullYear();
-let month = today.getMonth() + 1;
+var year = today.getFullYear();
+var month = today.getMonth() + 1;
 if(month < 10)
     month = '0' + month;
 
-let date = today.getDate();
+var date = today.getDate();
 
 
 
-let hour = today.getHours();
+var hour = today.getHours();
 
 if(hour < 5)
     data -= 1;                      // 05시 이전이면 전날을 기준으로 찾는다.
@@ -51,8 +51,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
     const response = await fetch(url);
     const data = await response.json();
 
-    var i = 0;
-    for(i = 0; i < 1000; i += 12) {
+    for(var i = 0; i < 1000; i += 12) {
         if(hour == data.response.body.items.item[i].fcstTime)
             break;
     }
@@ -64,8 +63,7 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
     const response = await fetch(url);
     const data = await response.json();
 
-    var i = 0;
-    for(i = 0; i < 1000; i += 12) {
+    for(var i = 0; i < 1000; i += 12) {
         if(hour == data.response.body.items.item[i].fcstTime)
             break;
     }
