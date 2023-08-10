@@ -96,9 +96,20 @@ async function main() {
       update: {},
       create: {
         name : "jeans",
-        temperature : 35,
+        temperature : 25,
         c_type : "하의",
         img_url : "rururururruru"
+      },
+    });
+
+    const createdRecommend2 = await prisma.Recommend.upsert({
+      where:{name : "T-shirts"},
+      update: {},
+      create: {
+        name : "T-shirts",
+        temperature : 25,
+        c_type : "상의",
+        img_url : "kkkkkakaka"
       },
     });
 

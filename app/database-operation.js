@@ -5,8 +5,8 @@ async function fetchCommentsWithWeather() {
   try {
     const commentsWithWeather = await prisma.recommend.findMany({
       where: {
-        temperature: {
-          equals: 35
+        weather: {
+          equals: "1"
         }
       },
       select: {
@@ -20,6 +20,7 @@ async function fetchCommentsWithWeather() {
     throw error;
   }
 }
+
 
 module.exports = {
   fetchCommentsWithWeather

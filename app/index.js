@@ -19,20 +19,20 @@ app.get("/goat", (req, res) => {
   res.send("mye,,,🐐");
 });
 
-const { fetchCommentsWithWeather } = require('./database-operation');
+// const { fetchCommentsWithWeather } = require('./database-operation');
 
-async function check() {
-  try {
-    const comments = await fetchCommentsWithWeather();
-    console.log("Comments with weather 3:", comments);
-  } catch (error) {
-    console.error("Error:", error);
-  } finally {
-    await prisma.$disconnect();
-  }
-}
+// async function check() {
+//   try {
+//     const comments = await fetchCommentsWithWeather();
+//     console.log("Comments with weather 3:", comments);
+//   } catch (error) {
+//     console.error("Error:", error);
+//   } finally {
+//     await prisma.$disconnect();
+//   }
+// }
 
 const prisma = new PrismaClient()
-check();
+// check();
 
 module.exports = app;
