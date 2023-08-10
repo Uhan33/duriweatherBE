@@ -74,7 +74,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
         if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i-4]);
+    res.send(data.response.body.items.item[i-4].fcstValue);
 });
 
 router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4
@@ -85,7 +85,7 @@ router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2
         if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i+5]);
+    res.send(data.response.body.items.item[i+5].fcstValue);
 });
 
 // 강수형태를 코드로 보내줌
@@ -97,7 +97,7 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
         if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i-5]);
+    res.send(data.response.body.items.item[i-5].fcstValue);
 });
 
 router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
@@ -108,7 +108,7 @@ router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈
         if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i+6]);
+    res.send(data.response.body.items.item[i+6].fcstValue);
 });
 
 module.exports = router;
