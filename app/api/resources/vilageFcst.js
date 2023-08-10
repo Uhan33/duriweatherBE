@@ -12,20 +12,39 @@ if(month < 10)
 var date = today.getDate();
 
 
-
+var fDate;
 var hour = today.getHours();
+var hourCheck = today.getHours();
 
-if(hour < 5)
-    data -= 1;                      // 05시 이전이면 전날을 기준으로 찾는다.
+hour += 9;
+if(hour > 23) {
+    hour -= 24;
+    date += 1;
+    fDate = date;
+    if(hour < 6)
+        date -= 1;                      // 05시 이전이면 전날을 기준으로 찾는다.
+}else {fDate = date;}
+
+console.log(hour, hourCheck);
+
 
 if(date < 10)
     date = '0' + date;
 
 let now = year + month + date;      // ex) 20230806
+let fNow = year + month + fDate;
+
+console.log(now, fNow);
 
 if(hour < 10)
     hour = '0' + hour;
 hour = hour + '00';      // ex) 0900
+
+console.log(hour);
+
+if(hourCheck < 10)
+    hourCheck = '0' + hourCheck;
+hourCheck = hourCheck + '00';
 
 var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst';
 var queryParams = '?' + encodeURIComponent('serviceKey') + '=	ySgwAA4cxcbx7n9F5i08pYGiFyS92Wc%2BjEdGYYvRsa4xCZlP0IbjUpelNxOdowDfjVmlKawIKfmnCnTAKmBLgQ%3D%3D'; /* Service Key*/
@@ -51,12 +70,8 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
     const response = await fetch(url);
     const data = await response.json();
 
-    hour += 9;
-    if(hour > 23)
-        hour -= 24;
-
     for(var i = 0; i < 1000; i += 12) {
-        if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
     res.send(data.response.body.items.item[i+5]);
@@ -67,7 +82,7 @@ router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2
     const data = await response.json();
 
     for(var i = 0; i < 1000; i += 12) {
-        if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
             break;
     }
     res.send(data.response.body.items.item[i+5]);
@@ -78,12 +93,8 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
     const response = await fetch(url);
     const data = await response.json();
 
-    hour += 9;
-    if(hour > 23)
-        hour -= 24;
-
     for(var i = 0; i < 1000; i += 12) {
-        if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
     res.send(data.response.body.items.item[i+6]);
@@ -94,7 +105,7 @@ router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈
     const data = await response.json();
 
     for(var i = 0; i < 1000; i += 12) {
-        if(hour == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
             break;
     }
     res.send(data.response.body.items.item[i+6]);
