@@ -54,12 +54,15 @@ router.get("/sopum", async (req, res) => {
         select: {name:true, img_url:true}
     });
 
+    const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
+    const temperature = await tempResponse.json();
+
     const sopum = await prisma.recommend.findMany({
         where: {
             AND : [
                 {temperature : {
-                    gt : 22,
-                    lte : 30
+                    gt : (temperature-2),
+                    lte : (temperature+2)
                 }},
                 {c_type : "소품"}]
         },
