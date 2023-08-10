@@ -4,6 +4,8 @@ const router = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+
+
 router.get("/", async (req, res) => {
     const result = await prisma.comment.findMany();
     res.json(result);
@@ -12,12 +14,12 @@ router.get("/", async (req, res) => {
 router.get("/today", async (req, res) => {
     const pmResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/pm10/grade");
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/sky");
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/pyt")
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/pyt");
 
-    let select;
+    let select = 0;
     const pm = await pmResponse.json();
     const sky = await skyResponse.json();
-    const pyt = await pytResponse.json();
+    const pyt = await pytResponse.json(); 
 
     if(Number(pyt) == 0) {
         select = Number(sky);

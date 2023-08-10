@@ -34,8 +34,8 @@ queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent(
 queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('JSON'); /* */
 queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent(now); /* */
 queryParams += '&' + encodeURIComponent('base_time') + '=' + encodeURIComponent('0500'); /* */
-queryParams += '&' + encodeURIComponent('nx') + '=' + encodeURIComponent('60'); /* */
-queryParams += '&' + encodeURIComponent('ny') + '=' + encodeURIComponent('127'); /* */
+queryParams += '&' + encodeURIComponent('nx') + '=' + encodeURIComponent('73'); /* */
+queryParams += '&' + encodeURIComponent('ny') + '=' + encodeURIComponent('134'); /* */
 
 url = url + queryParams;
     

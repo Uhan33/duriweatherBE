@@ -13,6 +13,7 @@ async function fetchCommentsWithWeather() {
         name: true
       }
     });
+
     console.log(commentsWithWeather);
     return commentsWithWeather;
   } catch (error) {
