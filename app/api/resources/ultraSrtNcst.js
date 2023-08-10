@@ -14,6 +14,7 @@ if(date < 10)
     date = '0' + date;
 
 let hour = today.getHours();
+hour += 9;
 let min = today.getMinutes();
 if(min < 30)
     hour -= 1;      // 정각에 데이터가 업데이트되지 않아 30분 까진 이전 시간대를 사용
