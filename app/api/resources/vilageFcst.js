@@ -21,7 +21,7 @@ if(hour > 23) {
     hour -= 24;
     date += 1;
     fDate = date;
-    if(hour < 6)
+    if(hour < 7)
         date -= 1;                      // 05시 이전이면 전날을 기준으로 찾는다.
 }else {fDate = date;}
 
@@ -74,7 +74,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
         if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i-6]);
+    res.send(data.response.body.items.item[i-4]);
 });
 
 router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4
@@ -97,7 +97,7 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
         if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i-7]);
+    res.send(data.response.body.items.item[i-5]);
 });
 
 router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
