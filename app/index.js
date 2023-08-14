@@ -1,8 +1,13 @@
 const express = require("express");
 const { PrismaClient } = require('@prisma/client');
 
+const bodyParser = require("body-parser");
+
 // Create an express instance
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const apiRouter = require("./api/router");
 app.use("/api", apiRouter);
