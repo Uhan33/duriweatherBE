@@ -71,8 +71,10 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
     const data = await response.json();
 
     for(var i = 0; i < 1000; i += 12) {
-        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
+        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate) {
+            i += 12;
             break;
+        }
     }
     res.send(data.response.body.items.item[i-7].fcstValue);
 });
@@ -94,8 +96,10 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
     const data = await response.json();
 
     for(var i = 0; i < 1000; i += 12) {
-        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
+        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate) {
+            i += 12;
             break;
+        }
     }
     res.send(data.response.body.items.item[i-6].fcstValue);
 });
