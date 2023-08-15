@@ -35,4 +35,28 @@ router.get("/grade", async (req, res) => {      //현재 시간 대기오염 등
     res.send(data.response.body.items[0].pm10Grade);
 });
 
+// 오존 value
+router.get("/o3value", async (req, res) => {      
+    const response = await fetch(url);
+    const data = await response.json();
+
+    res.send(data.response.body.items[0].o3Value);
+});
+
+// 이신화질소 value
+router.get("/no2value", async (req, res) => {      
+    const response = await fetch(url);
+    const data = await response.json();
+
+    res.send(data.response.body.items[0].no2Value);
+});
+
+// 초미세 value
+router.get("/pm25value", async (req, res) => {      //현재 시간 대기오염 지수
+    const response = await fetch(url);
+    const data = await response.json();
+
+    res.send(data.response.body.items[0].pm25Value);
+});
+
 module.exports = router;
