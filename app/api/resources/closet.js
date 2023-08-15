@@ -133,8 +133,15 @@ router.get("/jacket", async (req, res) => {
     });
 
     const ran = Math.floor(Math.random() * jacket.length);
-    console.log(jacket[ran]);
-    res.json(jacket[ran]);
+    if(jacket.length == 0){
+        res.json(0)
+        console.log("해당사항 없음!");
+    }
+    else{
+        res.json(jacket[ran]);
+        console.log(jacket[ran]);
+    }
+    
 });
 
 router.post("/", async (req, res) => {
