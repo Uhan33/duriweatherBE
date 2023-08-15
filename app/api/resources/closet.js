@@ -160,7 +160,7 @@ router.post("/", async (req, res) => {
                 create: {
                   name : outer,
                   temperature : temperature,
-                  weather : sky == 0 ? String(sky) : String(pyt+4),
+                  weather : pyt == 0 ? String(sky) : String(pyt+4),
                   c_type : "겉옷",
                   img_url : ""
                 },
@@ -176,7 +176,7 @@ router.post("/", async (req, res) => {
                 create: {
                   name : top,
                   temperature : temperature,
-                  weather : sky == 0 ? String(sky) : String(pyt+4),
+                  weather : pyt == 0 ? String(sky) : String(pyt+4),
                   c_type : "상의",
                   img_url : ""
                 },
@@ -192,7 +192,7 @@ router.post("/", async (req, res) => {
                 create: {
                   name : bottom,
                   temperature : temperature,
-                  weather : sky == 0 ? String(sky) : String(pyt+4),
+                  weather : pyt == 0 ? String(sky) : String(pyt+4),
                   c_type : "하의",
                   img_url : ""
                 },
@@ -208,7 +208,7 @@ router.post("/", async (req, res) => {
                 create: {
                   name : acc,
                   temperature : temperature,
-                  weather : sky == 0 ? String(sky) : String(pyt+4),
+                  weather : pyt == 0 ? String(sky) : String(pyt+4),
                   c_type : "소품",
                   img_url : ""
                 },
