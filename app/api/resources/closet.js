@@ -12,8 +12,15 @@ router.get("/", async (req, res) => {
 
 router.get("/top", async (req, res) => {
     const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
-
     const temperature = await tempResponse.json();
+    const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
+    const sky = await skyResponse.json();
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pyt = await pytResponse.json();
+
+    if(parseInt(pyt) != 0){
+	    sky += 4;
+    }
 
     const top = await prisma.recommend.findMany({
         where:{
@@ -24,10 +31,11 @@ router.get("/top", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "상의"}
+                {c_type : "상의"},
+                {weather : sky}
             ]
         },
-        select: {name:true, img_url:true, temperature:true}
+        select: {name:true, img_url:true, temperature:true, weather:true}
     });
 
     const ran = Math.floor(Math.random() * top.length);
@@ -36,61 +44,51 @@ router.get("/top", async (req, res) => {
 });
 
 router.get("/sopum", async (req, res) => {
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/pyt");
-    const pyt = await pytResponse.json();
-
-    // 우산 꺼내기 해두고
-    const umbrella = await prisma.recommend.findMany({
-        where: {
-            AND : [
-                {
-                    OR : [
-                            {weather : "1"}, {weather : "2"}, {weather : "3"}, {weather : "4"}
-                    ]
-                },
-                {c_type : "소품"}
-            ]
-        },
-        select: {name:true, img_url:true}
-    });
-
     const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
     const temperature = await tempResponse.json();
+    const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
+    const sky = await skyResponse.json();
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pyt = await pytResponse.json();
 
+    if(parseInt(pyt) != 0){
+	    sky += 4;
+    }
+    console.log("지금 날씨 : ", sky);
+    console.log("지금 기온 : ", temperature);
     const sopum = await prisma.recommend.findMany({
-        where: {
+        where:{
             AND : [
                 {temperature : {
-                    gt : (temperature-2),
+                    gt : (temperature-2)
+                }},
+                {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "소품"}]
+                {c_type : "소품"},
+                {weather : sky}
+            ]
         },
-        select: {name:true, img_url:true}
+        select: {name:true, img_url:true, temperature:true, weather:true}
     });
 
-    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
-    // 이걸로 날씨 여부 따지고 리스트에 우산을 몇개 더 넣어서 우산이 나올 확률을 더 키워야겠다. (이거아직반영안됨)
-    console.log("지금 강수 형태: ", pyt);
-    newsopum = sopum;
-    if(Number(pyt) == 0) {
-        console.log("비나 눈이 안옴");
-    }
-    else {
-        console.log("비나 눈이 오고있으니 우산을 챙겨야할듯...");
-        newsopum = sopum.concat(umbrella);
-    }
-
-    const ran = Math.floor(Math.random() * newsopum.length);
-    console.log("이 인덱스의 녀석이 나와야함: ", ran)
-    console.log(newsopum[ran]);
-    res.json(newsopum[ran]);
-})
+    console.log("sopum => ",sopum);
+    const ran = Math.floor(Math.random() * sopum.length);
+    console.log(sopum[ran]);
+    res.json(sopum[ran]);
+});
 
 router.get("/pants", async (req, res) => {
     const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
-
     const temperature = await tempResponse.json();
+    const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
+    const sky = await skyResponse.json();
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pyt = await pytResponse.json();
+
+    if(parseInt(pyt) != 0){
+	    sky += 4;
+    }
 
     const pants = await prisma.recommend.findMany({
         where:{
@@ -101,10 +99,11 @@ router.get("/pants", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "하의"}
+                {c_type : "하의"},
+                {weather : sky}
             ]
         },
-        select: {name:true, img_url:true, temperature:true}
+        select: {name:true, img_url:true, temperature:true, weather:true}
     });
 
     const ran = Math.floor(Math.random() * pants.length);
@@ -114,8 +113,15 @@ router.get("/pants", async (req, res) => {
 
 router.get("/jacket", async (req, res) => {
     const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
-
     const temperature = await tempResponse.json();
+    const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
+    const sky = await skyResponse.json();
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pyt = await pytResponse.json();
+
+    if(parseInt(pyt) != 0){
+	    sky += 4;
+    }
 
     const jacket = await prisma.recommend.findMany({
         where:{
@@ -126,10 +132,11 @@ router.get("/jacket", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "겉옷"}
+                {c_type : "겉옷"},
+                {weather : sky}
             ]
         },
-        select: {name:true, img_url:true, temperature:true}
+        select: {name:true, img_url:true, temperature:true, weather:true}
     });
 
     const ran = Math.floor(Math.random() * jacket.length);
