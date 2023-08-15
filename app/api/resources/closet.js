@@ -150,7 +150,7 @@ router.post("/", async (req, res) => {
     const sky = await skyResponse.json();
     const pyt = await pytResponse.json();
 
-    for(let i = 0; i < outerList.length; i++) {
+    for(let i = 0; i < outerList.length-1; i++) {
         if(outerList[i] == outer) {
             const createdOuter = await prisma.recommend.upsert({
                 where:{name : outer},
@@ -166,7 +166,7 @@ router.post("/", async (req, res) => {
         }
     }
 
-    for(let i = 0; i < topList.length; i++) {
+    for(let i = 0; i < topList.length-1; i++) {
         if(topList[i] == top) {
             const createdTop = await prisma.recommend.upsert({
                 where:{name : top},
@@ -182,7 +182,7 @@ router.post("/", async (req, res) => {
         }
     }
 
-    for(let i = 0; i < bottomList.length; i++) {
+    for(let i = 0; i < bottomList.length-1; i++) {
         if(bottomList[i] == bottom) {
             const createdBottom = await prisma.recommend.upsert({
                 where:{name : bottom},
@@ -198,7 +198,7 @@ router.post("/", async (req, res) => {
         }
     }
 
-    for(let i = 0; i < accList.length; i++) {
+    for(let i = 0; i < accList.length-1; i++) {
         if(accList[i] == acc) {
             const createdAcc = await prisma.recommend.upsert({
                 where:{name : acc},
@@ -217,7 +217,7 @@ router.post("/", async (req, res) => {
     res.sendStatus(204);
     
 
-})
+});
 
 
 
