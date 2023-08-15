@@ -111,4 +111,40 @@ router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈
     res.send(data.response.body.items.item[i+6].fcstValue);
 });
 
+// 습도를 보내줌
+router.get("/reh", async (req, res) => {    // %로 내보내는듯.
+    const response = await fetch(url);
+    const data = await response.json();
+
+    for(var i = 0; i < 1000; i += 12) {
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+            break;
+    }
+    res.send(data.response.body.items.item[i+10].fcstValue);
+});
+
+// 풍속을 내보내줌 (wsd)
+router.get("/wsd", async (req, res) => {  
+    const response = await fetch(url);
+    const data = await response.json();
+
+    for(var i = 0; i < 1000; i += 12) {
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+            break;
+    }
+    res.send(data.response.body.items.item[i+4].fcstValue);
+});
+
+// 풍향을 내보내줌 (vec)
+router.get("/vec", async (req, res) => {  
+    const response = await fetch(url);
+    const data = await response.json();
+
+    for(var i = 0; i < 1000; i += 12) {
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate)
+            break;
+    }
+    res.send(data.response.body.items.item[i+3].fcstValue);
+});
+
 module.exports = router;

@@ -56,6 +56,7 @@ router.get("/sopum", async (req, res) => {
     }
     console.log("지금 날씨 : ", sky);
     console.log("지금 기온 : ", temperature);
+    console.log("지금 비오니?: ", pyt);
     const sopum = await prisma.recommend.findMany({
         where:{
             AND : [
