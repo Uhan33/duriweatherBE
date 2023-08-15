@@ -18,9 +18,7 @@ router.get("/top", async (req, res) => {
     const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
     const pyt = await pytResponse.json();
 
-    if(parseInt(pyt) != 0){
-	    sky += 4;
-    }
+    
 
     const top = await prisma.recommend.findMany({
         where:{
@@ -32,7 +30,7 @@ router.get("/top", async (req, res) => {
                     lte : (temperature+2)
                 }},
                 {c_type : "상의"},
-                {weather : sky}
+                {weather : pyt == 0 ? String(sky) : String(pyt+4)}
             ]
         },
         select: {name:true, img_url:true, temperature:true, weather:true}
@@ -51,9 +49,7 @@ router.get("/sopum", async (req, res) => {
     const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
     const pyt = await pytResponse.json();
 
-    if(parseInt(pyt) != 0){
-	    sky += 4;
-    }
+    
     console.log("지금 날씨 : ", sky);
     console.log("지금 기온 : ", temperature);
     console.log("지금 비오니?: ", pyt);
@@ -67,7 +63,7 @@ router.get("/sopum", async (req, res) => {
                     lte : (temperature+2)
                 }},
                 {c_type : "소품"},
-                {weather : sky}
+                {weather : pyt == 0 ? String(sky) : String(pyt+4)}
             ]
         },
         select: {name:true, img_url:true, temperature:true, weather:true}
@@ -87,9 +83,7 @@ router.get("/pants", async (req, res) => {
     const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
     const pyt = await pytResponse.json();
 
-    if(parseInt(pyt) != 0){
-	    sky += 4;
-    }
+    
 
     const pants = await prisma.recommend.findMany({
         where:{
@@ -101,7 +95,7 @@ router.get("/pants", async (req, res) => {
                     lte : (temperature+2)
                 }},
                 {c_type : "하의"},
-                {weather : sky}
+                {weather : pyt == 0 ? String(sky) : String(pyt+4)}
             ]
         },
         select: {name:true, img_url:true, temperature:true, weather:true}
@@ -120,9 +114,7 @@ router.get("/jacket", async (req, res) => {
     const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
     const pyt = await pytResponse.json();
 
-    if(parseInt(pyt) != 0){
-	    sky += 4;
-    }
+   
 
     const jacket = await prisma.recommend.findMany({
         where:{
@@ -134,7 +126,7 @@ router.get("/jacket", async (req, res) => {
                     lte : (temperature+2)
                 }},
                 {c_type : "겉옷"},
-                {weather : sky}
+                {weather : pyt == 0 ? String(sky) : String(pyt+4)}
             ]
         },
         select: {name:true, img_url:true, temperature:true, weather:true}
