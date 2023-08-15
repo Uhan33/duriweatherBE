@@ -74,7 +74,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
         if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i-4].fcstValue);
+    res.send(data.response.body.items.item[i-7].fcstValue);
 });
 
 router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4
@@ -97,7 +97,7 @@ router.get("/pyt", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
         if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate)
             break;
     }
-    res.send(data.response.body.items.item[i-5].fcstValue);
+    res.send(data.response.body.items.item[i-6].fcstValue);
 });
 
 router.get("/pytcheck", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
