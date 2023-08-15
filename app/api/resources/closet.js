@@ -37,8 +37,14 @@ router.get("/top", async (req, res) => {
     });
 
     const ran = Math.floor(Math.random() * top.length);
-    console.log(top[ran]);
-    res.json(top[ran]);
+    if(top.length == 0){
+        res.json(0)
+        console.log("해당사항 없음!");
+    }
+    else{
+        res.json(top[ran]);
+        console.log(top[ran]);
+    }
 });
 
 router.get("/sopum", async (req, res) => {
@@ -71,8 +77,14 @@ router.get("/sopum", async (req, res) => {
 
     console.log("sopum => ",sopum);
     const ran = Math.floor(Math.random() * sopum.length);
-    console.log(sopum[ran]);
-    res.json(sopum[ran]);
+    if(sopum.length == 0){
+        res.json(0)
+        console.log("해당사항 없음!");
+    }
+    else{
+        res.json(sopum[ran]);
+        console.log(sopum[ran]);
+    }
 });
 
 router.get("/pants", async (req, res) => {
@@ -102,8 +114,14 @@ router.get("/pants", async (req, res) => {
     });
 
     const ran = Math.floor(Math.random() * pants.length);
-    console.log(pants[ran]);
-    res.json(pants[ran]);
+    if(pants.length == 0){
+        res.json(0);
+        console.log("해당사항 없음!");
+    }
+    else{
+        res.json(pants[ran]);
+        console.log(pants[ran]);
+    }
 });
 
 router.get("/jacket", async (req, res) => {
@@ -134,7 +152,7 @@ router.get("/jacket", async (req, res) => {
 
     const ran = Math.floor(Math.random() * jacket.length);
     if(jacket.length == 0){
-        res.json(0)
+        res.json(0);
         console.log("해당사항 없음!");
     }
     else{
