@@ -71,6 +71,8 @@ router.get("/sopum", async (req, res) => {
 
     // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3, 소나기 : 4
     // 이걸로 날씨 여부 따지고 리스트에 우산을 몇개 더 넣어서 우산이 나올 확률을 더 키워야겠다. (이거아직반영안됨)
+    console.log("지금 강수 형태: ", pyt);
+    newsopum = sopum;
     if(Number(pyt) == 0) {
         console.log("비나 눈이 안옴");
     }
