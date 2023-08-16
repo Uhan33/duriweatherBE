@@ -15,7 +15,7 @@ router.get("/top", async (req, res) => {
     const temperature = await tempResponse.json();
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
     const sky = await skyResponse.json();
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pty"); // 강수 
     const pyt = await pytResponse.json();
 
     
@@ -52,7 +52,7 @@ router.get("/sopum", async (req, res) => {
     const temperature = await tempResponse.json();
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
     const sky = await skyResponse.json();
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pty"); // 강수 
     const pyt = await pytResponse.json();
 
     
@@ -92,7 +92,7 @@ router.get("/pants", async (req, res) => {
     const temperature = await tempResponse.json();
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
     const sky = await skyResponse.json();
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pty"); // 강수 
     const pyt = await pytResponse.json();
 
     
@@ -129,7 +129,7 @@ router.get("/jacket", async (req, res) => {
     const temperature = await tempResponse.json();
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky"); // 날씨(맑/흐 등)
     const sky = await skyResponse.json();
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt"); // 강수 
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pty"); // 강수 
     const pyt = await pytResponse.json();
 
    
@@ -171,7 +171,7 @@ router.post("/", async (req, res) => {
     const { outer, top, bottom, acc } = req.body;
     const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//sky");
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pyt");
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pty");
 
     const temperature = await tempResponse.json();
     const sky = await skyResponse.json();

@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 router.get("/today", async (req, res) => {
     const pmResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/pm10/grade");
     const skyResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/sky");
-    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/pyt");
+    const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst/pty");
 
     let select = 0;
     const pm = await pmResponse.json();
