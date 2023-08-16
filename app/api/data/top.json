@@ -1,0 +1,38 @@
+[
+    {
+        "ko" : "니트/스웨터",
+        "en" : "Sweater",
+        "url" : "/clothes/sweater.png"
+    },
+    {
+        "ko" : "후드티셔츠",
+        "en" : "Hoodie",
+        "url" : "/clothes/hoodie.png"
+    },
+    {
+        "ko" : "맨투맨/스웨트셔츠",
+        "en" : "SweatShirt",
+        "url" : "/clothes/sweatshirt.png"
+    },
+    {
+        "ko" : "셔츠/블라우스",
+        "en" : "Shirt",
+        "url" : "/clothes/shirt.png"
+    },
+    {
+        "ko" : "긴팔 티셔츠",
+        "en" : "Long Sleeve",
+        "url" : "/clothes/long-sleeve.png"
+    },
+    {
+        "ko" : "반소매 티셔츠",
+        "en" : "Short Sleeve",
+        "url" : "/clothes/short-sleeve.png"
+    },
+    {
+        "ko" : "민소매 티셔츠",
+        "en" : "Sleeveless",
+        "url" : "/clothes/sleeveless.png"
+    }
+
+]

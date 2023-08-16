@@ -1,0 +1,43 @@
+[
+    {
+        "ko" : "데님 팬츠",
+        "en" : "Jeans",
+        "url" : "/clothes/jeans.png"
+    },
+    {
+        "ko" : "코튼 팬츠",
+        "en" : "Cotton Pants",
+        "url" : "/clothes/cotton-pants.png"
+    },
+    {
+        "ko" : "슈트팬츠/슬랙스",
+        "en" : "Slacks Pants",
+        "url" : "/clothes/slacks.png"
+    },
+    {
+        "ko" : "트레이닝/조거 팬츠",
+        "en" : "Sweat Pants",
+        "url" : "/clothes/sweat-pants.png"
+    },
+    {
+        "ko" : "레깅스",
+        "en" : "Leggings",
+        "url" : "/clothes/leggings.png"
+    },
+    {
+        "ko" : "숏 팬츠",
+        "en" : "Shorts",
+        "url" : "/clothes/shorts.png"
+    },
+    {
+        "ko" : "스커트",
+        "en" : "Skirt",
+        "url" : "/clothes/skirt.png"
+    },
+    {
+        "ko" : "원피스",
+        "en" : "Dress",
+        "url" : "/clothes/dress.png"
+    }
+
+]

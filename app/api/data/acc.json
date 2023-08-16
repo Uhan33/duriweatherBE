@@ -1,0 +1,17 @@
+[
+    {
+        "ko" : "비니",
+        "en" : "Beanie",
+        "url" : "/clothes/beanie.png"
+    },
+    {
+        "ko" : "볼캡",
+        "en" : "Baseball Cap",
+        "url" : "/clothes/baseball-cap.png"
+    },
+    {
+        "ko" : "우산",
+        "en" : "Umbrella",
+        "url" : "/clothes/umbrella.png"
+    }
+]

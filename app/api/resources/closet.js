@@ -4,6 +4,11 @@ const router = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+var outerFile = require('../data/outer.json');
+var topFile = require('../data/top.json');
+var bottomFile = require('../data/bottom.json');
+var accFile = require('../data/acc.json');
+
 router.get("/", async (req, res) => {
     const result = await prisma.recommend.findMany();
     res.json(result);
@@ -164,7 +169,7 @@ router.get("/jacket", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const outerList = ["패딩", "무스탕", "코트", "플리스/뽀글이", "점퍼", "자켓", "후드집업", "가디건", "없음"];
-    const topList = ["니트/스웨터", "후드티셔츠", "맨투맨/스웨터셔츠", "셔츠/블라우스", "긴팔 티셔츠", "반소매 티셔츠", "민소매 티셔츠", "없음"];
+    const topList = ["니트/스웨터", "후드티셔츠", "맨투맨/스웨트셔츠", "셔츠/블라우스", "긴팔 티셔츠", "반소매 티셔츠", "민소매 티셔츠", "없음"];
     const bottomList = ["데님 팬츠", "코튼 팬츠", "슈트팬츠/슬랙스", "트레이닝/조거 팬츠", "레깅스", "숏 팬츠", "스커트", "원피스", "없음"];
     const accList = ["비니", "볼캡", "우산", "없음"];
 
@@ -177,17 +182,21 @@ router.post("/", async (req, res) => {
     const sky = await skyResponse.json();
     const pyt = await pytResponse.json();
 
+    let j = 0;
+
     for(let i = 0; i < outerList.length-1; i++) {
         if(outerList[i] == outer) {
-            const createdOuter = await prisma.recommend.upsert({
-                where:{name : outer},
-                update: {},
-                create: {
-                  name : outer,
+            for(j = 0; j < outerFile.length; j++) {
+                if(outerFile[j].ko == outer)
+                    break;
+            }
+            const createdOuter = await prisma.recommend.create({
+                data: {
+                  name : outerFile[j].en,
                   temperature : temperature,
                   weather : pyt == 0 ? sky : pyt+4,
-                  c_type : "겉옷",
-                  img_url : ""
+                  c_type : "Outer",
+                  img_url : outerFile[j].url
                 },
               });
         }
@@ -195,15 +204,17 @@ router.post("/", async (req, res) => {
 
     for(let i = 0; i < topList.length-1; i++) {
         if(topList[i] == top) {
-            const createdTop = await prisma.recommend.upsert({
-                where:{name : top},
-                update: {},
-                create: {
-                  name : top,
+            for(j = 0; j < topFile.length; j++) {
+                if(topFile[j].ko == top)
+                    break;
+            }
+            const createdTop = await prisma.recommend.create({
+                data: {
+                  name : topFile[j].en,
                   temperature : temperature,
                   weather : pyt == 0 ? sky : pyt+4,
-                  c_type : "상의",
-                  img_url : ""
+                  c_type : "Top",
+                  img_url : topFile[j].url
                 },
               });
         }
@@ -211,15 +222,17 @@ router.post("/", async (req, res) => {
 
     for(let i = 0; i < bottomList.length-1; i++) {
         if(bottomList[i] == bottom) {
-            const createdBottom = await prisma.recommend.upsert({
-                where:{name : bottom},
-                update: {},
-                create: {
-                  name : bottom,
+            for(j = 0; j < bottomFile.length; j++) {
+                if(bottomFile[j].ko == bottom)
+                    break;
+            }
+            const createdBottom = await prisma.recommend.create({
+                data: {
+                  name : bottomFile[j].en,
                   temperature : temperature,
                   weather : pyt == 0 ? sky : pyt+4,
-                  c_type : "하의",
-                  img_url : ""
+                  c_type : "Bottom",
+                  img_url : bottomFile[j].url
                 },
               });
         }
@@ -227,15 +240,17 @@ router.post("/", async (req, res) => {
 
     for(let i = 0; i < accList.length-1; i++) {
         if(accList[i] == acc) {
-            const createdAcc = await prisma.recommend.upsert({
-                where:{name : acc},
-                update: {},
-                create: {
-                  name : acc,
+            for(j = 0; j < accFile.length; j++) {
+                if(accFile[j].ko == acc)
+                    break;
+            }
+            const createdAcc = await prisma.recommend.create({
+                data: {
+                  name : accFile[j].en,
                   temperature : temperature,
                   weather : pyt == 0 ? sky : pyt+4,
-                  c_type : "소품",
-                  img_url : ""
+                  c_type : "Acc",
+                  img_url : accFile[j].url
                 },
               });
         }

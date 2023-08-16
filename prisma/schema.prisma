@@ -42,7 +42,7 @@ model comment {
 
 model Recommend{
   id            String       @default(cuid()) @id
-  name          String?      @unique
+  name          String?      
   temperature   Int
   weather       Int
   c_type        String

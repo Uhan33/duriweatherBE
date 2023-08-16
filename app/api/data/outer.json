@@ -1,0 +1,42 @@
+[
+    {
+        "ko" : "패딩",
+        "en" : "Padding",
+        "url" : "/clothes/padding.png"
+    },
+    {
+        "ko" : "무스탕",
+        "en" : "Swede Coat",
+        "url" : "/clothes/swede-coat.png"
+    },
+    {
+        "ko" : "코트",
+        "en" : "Coat",
+        "url" : "/clothes/coat.png"
+    },
+    {
+        "ko" : "플리스/뽀글이",
+        "en" : "Fleece",
+        "url" : "/clothes/fleece.png"
+    },
+    {
+        "ko" : "점퍼",
+        "en" : "Jumper",
+        "url" : "/clothes/jumper.png"
+    },
+    {
+        "ko" : "자켓",
+        "en" : "Jacket",
+        "url" : "/clothes/jacket.png"
+    },
+    {
+        "ko" : "후드집업",
+        "en" : "Hoodie Zip-up",
+        "url" : "/clothes/hoodie-zipup.png"
+    },
+    {
+        "ko" : "가디건",
+        "en" : "Cardigan",
+        "url" : "/clothes/cardigan.png"
+    }
+]
