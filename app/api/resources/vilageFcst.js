@@ -78,7 +78,7 @@ router.get("/sky", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구
             break;
         }
     }
-    res.send(data.response.body.items.item[i]);
+    res.send(data.response.body.items.item[i].fcstValue);
 });
 
 router.get("/skycheck", async (req, res) => {    // 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4
