@@ -122,7 +122,7 @@ router.get("/reh", async (req, res) => {    // %로 내보내는듯.
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "REH" == data.response.body.items.item[i].category)
+        if(hourCheck == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate && "REH" == data.response.body.items.item[i].category)
             break;
     }
     res.send(data.response.body.items.item[i].fcstValue);
@@ -134,7 +134,7 @@ router.get("/wsd", async (req, res) => {
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "WSD" == data.response.body.items.item[i].category)
+        if(hourCheck == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate && "WSD" == data.response.body.items.item[i].category)
             break;
     }
     res.send(data.response.body.items.item[i].fcstValue);
@@ -146,7 +146,7 @@ router.get("/vec", async (req, res) => {
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "VEC" == data.response.body.items.item[i].category)
+        if(hourCheck == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate && "VEC" == data.response.body.items.item[i].category)
             break;
     }
     res.send(data.response.body.items.item[i].fcstValue);
@@ -157,7 +157,7 @@ router.get("/pop", async (req, res) => {
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "POP" == data.response.body.items.item[i].category)
+        if(hourCheck == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate && "POP" == data.response.body.items.item[i].category)
             break;
     }
     res.send(data.response.body.items.item[i].fcstValue);
@@ -168,7 +168,7 @@ router.get("/tmx", async (req, res) => {
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "TMX" == data.response.body.items.item[i].category)
+        if(fNow == data.response.body.items.item[i].fcstDate && "TMX" == data.response.body.items.item[i].category)
             break;
     }
     res.send(data.response.body.items.item[i].fcstValue);
@@ -179,7 +179,7 @@ router.get("/tmn", async (req, res) => {
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "TMN" == data.response.body.items.item[i].category)
+        if(fNow == data.response.body.items.item[i].fcstDate && "TMN" == data.response.body.items.item[i].category)
             break;
     }
     res.send(data.response.body.items.item[i].fcstValue);
