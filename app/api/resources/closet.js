@@ -34,7 +34,7 @@ router.get("/top", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "상의"},
+                {c_type : "Top"},
                 {weather : pyt == 0 ? sky : pyt+4}
             ]
         },
@@ -73,7 +73,7 @@ router.get("/sopum", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "소품"},
+                {c_type : "Acc"},
                 {weather : pyt == 0 ? sky : pyt+4}
             ]
         },
@@ -111,7 +111,7 @@ router.get("/pants", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "하의"},
+                {c_type : "Pants"},
                 {weather : pyt == 0 ? sky : pyt+4}
             ]
         },
@@ -148,7 +148,7 @@ router.get("/jacket", async (req, res) => {
                 {temperature : {
                     lte : (temperature+2)
                 }},
-                {c_type : "겉옷"},
+                {c_type : "Outer"},
                 {weather : pyt == 0 ? sky : pyt+4}
             ]
         },
