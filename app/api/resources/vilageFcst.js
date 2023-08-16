@@ -98,7 +98,7 @@ router.get("/pty", async (req, res) => {    // 없음 : 0, 비 : 1, 비/눈 : 2,
     const data = await response.json();
 
     for(var i = 0; i < 1000; i++) {
-        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate && "PTY" == data.response.body.items.item[i]) {
+        if(hour == data.response.body.items.item[i].fcstTime && fNow == data.response.body.items.item[i].fcstDate && "PTY" == data.response.body.items.item[i].category) {
             break;
         }
     }
