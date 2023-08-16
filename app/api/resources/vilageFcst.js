@@ -152,4 +152,39 @@ router.get("/vec", async (req, res) => {
     res.send(data.response.body.items.item[i].fcstValue);
 });
 
+router.get("/pop", async (req, res) => {  
+    const response = await fetch(url);
+    const data = await response.json();
+
+    for(var i = 0; i < 1000; i++) {
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "POP" == data.response.body.items.item[i].category)
+            break;
+    }
+    res.send(data.response.body.items.item[i].fcstValue);
+});
+
+router.get("/tmx", async (req, res) => {  
+    const response = await fetch(url);
+    const data = await response.json();
+
+    for(var i = 0; i < 1000; i++) {
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "TMX" == data.response.body.items.item[i].category)
+            break;
+    }
+    res.send(data.response.body.items.item[i].fcstValue);
+});
+
+router.get("/tmn", async (req, res) => {  
+    const response = await fetch(url);
+    const data = await response.json();
+
+    for(var i = 0; i < 1000; i++) {
+        if(hourCheck == data.response.body.items.item[i].fcstTime && now == data.response.body.items.item[i].fcstDate && "TMN" == data.response.body.items.item[i].category)
+            break;
+    }
+    res.send(data.response.body.items.item[i].fcstValue);
+});
+
+
+
 module.exports = router;
