@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 const noData = {
-  name: "이미지 준비중이에요~",
+  name: "더 많은 데이터를 기반으로 준비중이에요~",
   img_url: "/clothes/balloons.png",
   temperature: "",
   weather: ""
