@@ -31,11 +31,23 @@ router.get("/today", async (req, res) => {
                 pm: String(pm)},
         select: {comment: true}
     });
-    const randomIndex = Math.floor(Math.random() * result.length);
+    const randomIndex1 = Math.floor(Math.random() * result.length);
+    const randomIndex2 = Math.floor(Math.random() * result.length);
 
-    console.log(randomIndex);
+    var rIndex = [
+        { "comment1" : result[randomIndex1].comment },
+        { "comment2" : result[randomIndex2].comment }
+    ]
 
-    res.json(result[randomIndex]);
+    console.log(result.length, randomIndex1);
+
+    if (result == null) {
+        res.send("오늘 날씨에 추천드릴게 아직 없네요..")
+    }
+    else {
+        res.send(rIndex);
+    }
+    
 });
 
 module.exports = router;
