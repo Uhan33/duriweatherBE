@@ -28,8 +28,8 @@ router.get("/today", async (req, res) => {
     const randomIndex2 = Math.floor(Math.random() * result.length);
 
     var rIndex = [
-        { "comment1" : result[randomIndex1].comment },
-        { "comment2" : result[randomIndex2].comment }
+         result[randomIndex1] ,
+         result[randomIndex2] 
     ]
 
     console.log(result.length, randomIndex1);
