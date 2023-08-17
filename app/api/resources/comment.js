@@ -19,16 +19,9 @@ router.get("/today", async (req, res) => {
     const sky = await skyResponse.json();
     const pyt = await pytResponse.json(); 
 
-    if(Number(pyt) == 0) {
-        select = Number(sky);
-    }
-    else {
-        select = Number(pyt) + 4;   //DB에선 구분을 위해 강수 코드(1,2,3,4) 에 + 4를 할 예정(5,6,7,8)
-    }
-
     const result = await prisma.comment.findMany({
-        where: {weather: String(select),
-                pm: String(pm)},
+        where: {weather: pyt == 0 ? sky : pyt + 4,
+                pm: pm},
         select: {comment: true}
     });
     const randomIndex1 = Math.floor(Math.random() * result.length);

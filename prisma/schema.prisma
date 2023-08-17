@@ -34,8 +34,8 @@ model User {
 model comment {
   id            String       @default(cuid()) @id
   num           Int          @unique
-  weather       String?
-  pm            String?
+  weather       Int
+  pm            Int
   comment       String
 }
 
