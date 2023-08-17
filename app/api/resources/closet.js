@@ -14,6 +14,12 @@ router.get("/", async (req, res) => {
     res.json(result);
 });
 
+const noData = {
+  name: "이미지 준비중이에요~",
+  img_url: "/clothes/balloons.png",
+  temperature: "",
+  weather: ""
+};
 
 router.get("/top", async (req, res) => {
     const tempResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/ultraSrtNcst//T1H");
@@ -22,8 +28,6 @@ router.get("/top", async (req, res) => {
     const sky = await skyResponse.json();
     const pytResponse = await fetch("https://duriweatherbe-uhan33.vercel.app/api/vilageFcst//pty"); // 강수 
     const pyt = await pytResponse.json();
-
-    
 
     const top = await prisma.recommend.findMany({
         where:{
@@ -43,8 +47,8 @@ router.get("/top", async (req, res) => {
 
     const ran = Math.floor(Math.random() * top.length);
     if(top.length == 0){
-        res.json(0)
-        console.log("해당사항 없음!");
+      res.json(noData)
+      console.log("해당사항 없음!");
     }
     else{
         res.json(top[ran]);
@@ -83,7 +87,7 @@ router.get("/sopum", async (req, res) => {
     console.log("sopum => ",sopum);
     const ran = Math.floor(Math.random() * sopum.length);
     if(sopum.length == 0){
-        res.json(0)
+        res.json(noData)
         console.log("해당사항 없음!");
     }
     else{
@@ -120,7 +124,7 @@ router.get("/pants", async (req, res) => {
 
     const ran = Math.floor(Math.random() * pants.length);
     if(pants.length == 0){
-        res.json(0);
+        res.json(noData);
         console.log("해당사항 없음!");
     }
     else{
@@ -157,7 +161,7 @@ router.get("/jacket", async (req, res) => {
 
     const ran = Math.floor(Math.random() * jacket.length);
     if(jacket.length == 0){
-        res.json(0);
+        res.json(noData);
         console.log("해당사항 없음!");
     }
     else{
