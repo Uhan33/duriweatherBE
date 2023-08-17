@@ -2,30 +2,66 @@
 
 <html>
     <head>
-        API 목록
+        <h1>API 문서</h1>
     </head>
     <body>
-        <h2>/api                            API 목록<h2>
-        <h2>/api/ultraSrtNcst               초단기실황조회 API</h2>
-        <h2>/api/ultraSrtNcst/T1H           현재 온도 API</h2>
-        <h2>/api/vilageFcst                 단기예보조회 API</h2>
-        <h2>/api/vilageFcst/sky             날씨 코드 API <a>// 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4</a></h2>
-        <h2>/api/vilageFcst/pyt             강수 코드 API <a>// 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3</a></h2>
-        <h2>/api/vilageFcst/reh             현재 습도 API</h2>
-        <h2>/api/vilageFcst/wsd             현재 풍속 API</h2>
-        <h2>/api/vilageFcst/vec             현재 풍향 API</h2>
-        <h2>/api/pm10                       시간대별 대기 오염 총 목록</h2>
-        <h2>/api/pm10/value                 미세먼지 농도 값 API</h2>
-        <h2>/api/pm10/grade                 미세먼지 등급 API</h2>
-        <h2>/api/pm10/o3value               오존 값 API</h2>
-        <h2>/api/pm10/pm25value             초미세 값 API</h2>
-        <h2>/api/pm10/no2value              이산화질소 값 API</h2>
-        <h2>/api/comment                    할 일 목록 코멘트 API(추가 및 수정중)</h2>
-        <h2>/api/comment/today              오늘의 할 일 코멘트 랜덤 추출 API(추가 및 수정중)</h2>
-        <h2>/api/closet/top                 상의 추천(기온 기준)</h2>
-        <h2>/api/closet/sopum               소품 추천(기온+날씨 기준)</h2>
-        <h2>/api/closet/pants               하의 추천(기온 기준)</h2>
-        <h2>/api/closet/jacket              겉옷 추천(기온 기준)</h2>
+        <pre>
+            <h2>/api            API 목록</h2>
+-----------------------------------------------------------------------------------------------------------
+            <h3>METHOD = GET (queryparams 없음)</h3>
+<b>/api/ultraSrtNcst</b>               초단기실황조회 API
 
+<b>/api/ultraSrtNcst/T1H</b>           현재 온도 API
+
+<b>/api/vilageFcst</b>                 단기예보조회 API
+
+<b>/api/vilageFcst/sky</b>             날씨 코드 API // 맑음 : 1, 구름조금 : 2, 구름많음 : 3, 흐림 : 4</a>
+
+<b>/api/vilageFcst/pyt</b>             강수 코드 API // 없음 : 0, 비 : 1, 비/눈 : 2, 눈 : 3</a>
+
+<b>/api/vilageFcst/reh</b>             현재 습도 API
+
+<b>/api/vilageFcst/wsd</b>             현재 풍속 API
+
+<b>/api/vilageFcst/vec</b>             현재 풍향 API
+
+<b>/api/pm10</b>                       시간대별 대기 오염 총 목록
+
+<b>/api/pm10/value</b>                 미세먼지 농도 값 API
+
+<b>/api/pm10/grade</b>                 미세먼지 등급 API
+
+<b>/api/pm10/o3value</b>               오존 값 API
+
+<b>/api/pm10/pm25value</b>             초미세 값 API
+
+<b>/api/pm10/no2value</b>              이산화질소 값 API
+
+<b>/api/comment</b>                    할 일 목록 코멘트 API
+
+<b>/api/comment/today</b>              오늘의 할 일 코멘트 랜덤 추출 API
+
+<b>/api/closet/top</b>                 상의 추천(기온 기준)
+
+<b>/api/closet/sopum</b>               소품 추천(기온+날씨 기준)
+
+<b>/api/closet/pants</b>               하의 추천(기온 기준)
+
+<b>/api/closet/jacket</b>              겉옷 추천(기온 기준)
+
+-----------------------------------------------------------------------------------------------------------
+
+<h3>METHOD = POST</h3>
+<b>/api/closet</b>                     ootd에서 입력받은 옷 전달
+
+    body : {
+                "outer" : "",
+                "top" : "",
+                "bottom" : "",
+                "acc" : ""
+            }
+
+-----------------------------------------------------------------------------------------------------------
+        </pre>
     </body>
 </html>
