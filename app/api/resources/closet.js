@@ -29,6 +29,10 @@ router.get("/top", async (req, res) => {
     const pytResponse = await fetch("https://duriweatherbe-uhan33-s-team.vercel.app/api/vilageFcst//pty"); // 강수 
     const pyt = await pytResponse.json();
 
+    console.log("지금 기온 : ", temperature);
+    const w = pyt == 0 ? sky : pyt+4;
+    console.log("지금 날씨 : ",w);
+
     const top = await prisma.recommend.findMany({
         where:{
             AND : [
